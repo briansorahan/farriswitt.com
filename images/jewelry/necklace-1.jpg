@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f5d769;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="#f9f6f0"/>
+  <!-- Chain -->
+  <ellipse cx="200" cy="100" rx="80" ry="40" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <!-- Pendant -->
+  <circle cx="200" cy="200" r="45" fill="none" stroke="url(#gold)" stroke-width="4"/>
+  <path d="M175 195 L200 225 L225 195" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="200" cy="180" r="8" fill="url(#gold)"/>
+</svg>
