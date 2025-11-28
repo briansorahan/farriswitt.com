@@ -26,7 +26,7 @@ const App = {
         galleryEl.innerHTML = items.map(item => `
             <article class="jewelry-card" data-category="${item.category}" data-id="${item.id}">
                 <div class="jewelry-card-image">
-                    <img src="${item.image}" alt="${this.escapeHtml(item.name)}" loading="lazy" onerror="this.src='images/placeholder.jpg'">
+                    <img src="${item.image}" alt="${this.escapeHtml(item.name)}" loading="lazy" onerror="this.src='images/placeholder.svg'">
                     <div class="jewelry-card-overlay">
                         <button class="quick-view-btn" onclick="App.showProductModal(${item.id})">Quick View</button>
                     </div>

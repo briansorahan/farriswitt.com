@@ -107,7 +107,7 @@ const Cart = {
         cartItemsEl.innerHTML = this.items.map(item => `
             <div class="cart-item" data-id="${item.id}">
                 <div class="cart-item-image">
-                    <img src="${item.image}" alt="${this.escapeHtml(item.name)}" onerror="this.src='images/placeholder.jpg'">
+                    <img src="${item.image}" alt="${this.escapeHtml(item.name)}" onerror="this.src='images/placeholder.svg'">
                 </div>
                 <div class="cart-item-details">
                     <div class="cart-item-name">${this.escapeHtml(item.name)}</div>

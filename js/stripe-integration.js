@@ -1,9 +1,15 @@
 // Stripe Integration Module
-// Note: For production, you'll need to replace these with your actual Stripe keys
-// The publishable key can be public, but the secret key must be kept on your server
+// 
+// SETUP INSTRUCTIONS:
+// 1. Create a Stripe account at https://stripe.com
+// 2. Get your publishable key from Dashboard > Developers > API keys
+// 3. Replace 'pk_test_your_publishable_key_here' below with your actual key
+// 4. For production, implement a server-side component to handle PaymentIntents
+//
+// Note: The publishable key can be public, but never expose your secret key
 
 const StripeIntegration = {
-    // Replace with your Stripe publishable key
+    // Replace with your Stripe publishable key (starts with pk_test_ or pk_live_)
     publishableKey: 'pk_test_your_publishable_key_here',
     stripe: null,
     card: null,
@@ -161,8 +167,13 @@ const StripeIntegration = {
         return new Promise((resolve) => {
             // Simulate network delay
             setTimeout(() => {
-                // Simulate successful payment
-                const transactionId = 'txn_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                // Simulate successful payment with a unique transaction ID
+                // Use crypto.randomUUID() if available, fallback to timestamp-based ID
+                const transactionId = 'txn_' + (
+                    typeof crypto !== 'undefined' && crypto.randomUUID 
+                        ? crypto.randomUUID() 
+                        : Date.now() + '_' + Math.random().toString(36).substring(2, 11)
+                );
                 
                 console.log('Demo Payment Processed:', {
                     transactionId,
