@@ -36,13 +36,57 @@ If you're operating as a marketplace (collecting payments on behalf of sellers):
 3. Update the payment flow to include the connected account ID
 4. Implement proper fee splitting as needed
 
-## Development
+## Local Development
 
-This is a static HTML/CSS/JavaScript site. To run locally:
+This is a static HTML/CSS/JavaScript site. To test the site locally, you'll need to run an HTTP server.
 
-1. Clone the repository
-2. Open `index.html` in a web browser
-3. Or use a local server like `python -m http.server 8000`
+### Using Python (Recommended)
+
+If you have Python installed, you can start a local server with:
+
+**Python 3:**
+```bash
+cd /path/to/farriswitt.com
+python3 -m http.server 8000
+```
+
+**Python 2:**
+```bash
+cd /path/to/farriswitt.com
+python -m SimpleHTTPServer 8000
+```
+
+Then open your browser and navigate to: `http://localhost:8000`
+
+### Using Node.js
+
+If you have Node.js installed, you can use `http-server`:
+
+```bash
+# Install http-server globally (one-time setup)
+npm install -g http-server
+
+# Run the server
+cd /path/to/farriswitt.com
+http-server -p 8000
+```
+
+Then open your browser and navigate to: `http://localhost:8000`
+
+### Using PHP
+
+If you have PHP installed:
+
+```bash
+cd /path/to/farriswitt.com
+php -S localhost:8000
+```
+
+Then open your browser and navigate to: `http://localhost:8000`
+
+### Opening Directly in Browser
+
+For simple testing, you can also open `index.html` directly in your web browser. However, some features (like Stripe integration) may require an HTTP server to work properly due to browser security restrictions.
 
 ## Project Structure
 
