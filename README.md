@@ -9,6 +9,7 @@ A beautiful GitHub Pages site featuring a handcrafted jewelry gallery with Strip
 - **Quick View**: View product details in an elegant modal popup
 - **Shopping Cart**: Add items to cart with real-time updates
 - **Stripe Connect Integration**: Secure payment processing via Stripe
+- **Digital Wallet Support**: Accept payments via Google Pay and Apple Pay
 - **Mobile-Friendly**: Fully responsive design that works on all devices
 
 ## Live Site
@@ -26,6 +27,27 @@ To enable payments on your site, you'll need to set up Stripe Connect:
    - Create Payment Intents
    - Handle webhooks for payment confirmation
    - Process orders securely
+
+### Digital Wallets (Google Pay & Apple Pay)
+
+The implementation now supports digital wallet payments automatically via Stripe's Payment Request Button API:
+
+**Google Pay:**
+- Works in Chrome, Edge, and other Chromium browsers
+- Requires users to have saved payment methods in their Google account
+- No additional setup required beyond basic Stripe configuration
+
+**Apple Pay:**
+- Works in Safari on iOS/macOS
+- Requires HTTPS in production (GitHub Pages provides this automatically)
+- For custom domains, register your domain with Apple Pay:
+  1. Go to Stripe Dashboard > Settings > Payment Methods > Apple Pay
+  2. Add and verify your domain
+  3. Stripe handles the domain verification file automatically
+
+**Fallback:**
+- If digital wallets are unavailable, customers can still pay with traditional card input
+- The payment form automatically adapts to show available payment methods
 
 ### Stripe Connect for Marketplace
 

@@ -7,12 +7,20 @@
 // 4. For production, implement a server-side component to handle PaymentIntents
 //
 // Note: The publishable key can be public, but never expose your secret key
+//
+// DIGITAL WALLETS (Google Pay & Apple Pay):
+// - Supported automatically via Payment Request Button
+// - Apple Pay requires HTTPS and domain verification in production
+// - Google Pay works in Chrome/Edge with saved payment methods
+// - Falls back to traditional card input if wallets unavailable
 
 const StripeIntegration = {
     // Replace with your Stripe publishable key (starts with pk_test_ or pk_live_)
     publishableKey: 'pk_test_your_publishable_key_here',
     stripe: null,
     card: null,
+    paymentRequest: null,
+    paymentRequestButton: null,
     
     init() {
         // Check if Stripe is available
@@ -81,6 +89,106 @@ const StripeIntegration = {
                 this.card.mount('#card-element');
             }
         }
+        // Also initialize payment request button when checkout opens
+        this.initPaymentRequestButton();
+    },
+    
+    initPaymentRequestButton() {
+        if (!this.stripe) return;
+        
+        // Check if payment request button already exists
+        const prButtonContainer = document.getElementById('payment-request-button');
+        if (!prButtonContainer) return;
+        
+        // Get cart total
+        const total = Cart.getTotal();
+        
+        // Create payment request
+        this.paymentRequest = this.stripe.paymentRequest({
+            country: 'US',
+            currency: 'usd',
+            total: {
+                label: 'Farris Witt Jewelry',
+                amount: Math.round(total * 100), // Convert to cents
+            },
+            requestPayerName: true,
+            requestPayerEmail: true,
+        });
+        
+        // Check if Payment Request is available (Apple Pay, Google Pay, etc.)
+        this.paymentRequest.canMakePayment().then((result) => {
+            if (result) {
+                // Create and mount the Payment Request Button
+                const elements = this.stripe.elements();
+                this.paymentRequestButton = elements.create('paymentRequestButton', {
+                    paymentRequest: this.paymentRequest,
+                    style: {
+                        paymentRequestButton: {
+                            type: 'default', // or 'buy', 'donate'
+                            theme: 'dark', // or 'light', 'light-outline'
+                            height: '48px',
+                        },
+                    },
+                });
+                
+                // Mount the button
+                prButtonContainer.innerHTML = ''; // Clear any existing content
+                this.paymentRequestButton.mount('#payment-request-button');
+                document.getElementById('wallet-separator').style.display = 'block';
+                
+                console.log('Digital wallet available:', result);
+            } else {
+                // Hide the payment request button container
+                prButtonContainer.style.display = 'none';
+                document.getElementById('wallet-separator').style.display = 'none';
+            }
+        }).catch((error) => {
+            console.error('Error checking payment methods:', error);
+            prButtonContainer.style.display = 'none';
+            document.getElementById('wallet-separator').style.display = 'none';
+        });
+        
+        // Handle payment method creation
+        this.paymentRequest.on('paymentmethod', async (ev) => {
+            try {
+                // Get customer info from payment method
+                const customerInfo = {
+                    email: ev.payerEmail || '',
+                    name: ev.payerName || ''
+                };
+                
+                // Process payment with digital wallet
+                const result = await this.simulatePayment(
+                    customerInfo, 
+                    Cart.items, 
+                    Cart.getTotal()
+                );
+                
+                if (result.success) {
+                    // Report to the browser that the payment was successful
+                    ev.complete('success');
+                    
+                    // Show success state
+                    this.showCheckoutSuccess();
+                    
+                    // Clear cart
+                    Cart.clear();
+                } else {
+                    ev.complete('fail');
+                    const displayError = document.getElementById('card-errors');
+                    displayError.textContent = result.error || 'Payment failed. Please try again.';
+                }
+            } catch (error) {
+                ev.complete('fail');
+                const displayError = document.getElementById('card-errors');
+                displayError.textContent = error.message || 'Payment failed. Please try again.';
+            }
+        });
+    },
+    
+    showCheckoutSuccess() {
+        document.getElementById('checkout-form-container').classList.add('hidden');
+        document.getElementById('checkout-success').classList.remove('hidden');
     },
     
     async processPayment(customerInfo, cartItems, total) {

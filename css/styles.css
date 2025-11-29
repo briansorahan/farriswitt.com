@@ -555,6 +555,31 @@ img {
     max-width: 450px;
 }
 
+/* Payment Request Button (Google Pay, Apple Pay) */
+.payment-request-button {
+    margin-bottom: 20px;
+}
+
+.wallet-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: #666;
+}
+
+.wallet-separator::before,
+.wallet-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.wallet-separator span {
+    padding: 0 16px;
+    font-size: 0.9rem;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
