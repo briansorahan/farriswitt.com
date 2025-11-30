@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f9f6f0"/>
+  <defs>
+    <linearGradient id="white-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c0c0c0"/>
+      <stop offset="50%" style="stop-color:#f0f0f0"/>
+      <stop offset="100%" style="stop-color:#c0c0c0"/>
+    </linearGradient>
+    <radialGradient id="sapphire" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#6495ed"/>
+      <stop offset="100%" style="stop-color:#00008b"/>
+    </radialGradient>
+    <radialGradient id="diamond" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#fff"/>
+      <stop offset="100%" style="stop-color:#e0e0e0"/>
+    </radialGradient>
+  </defs>
+  <!-- Ring band -->
+  <ellipse cx="200" cy="220" rx="70" ry="35" fill="none" stroke="url(#white-gold)" stroke-width="15"/>
+  <!-- Alternating stones -->
+  <circle cx="140" cy="195" r="8" fill="url(#sapphire)"/>
+  <circle cx="160" cy="185" r="6" fill="url(#diamond)"/>
+  <circle cx="180" cy="178" r="8" fill="url(#sapphire)"/>
+  <circle cx="200" cy="175" r="6" fill="url(#diamond)"/>
+  <circle cx="220" cy="178" r="8" fill="url(#sapphire)"/>
+  <circle cx="240" cy="185" r="6" fill="url(#diamond)"/>
+  <circle cx="260" cy="195" r="8" fill="url(#sapphire)"/>
+</svg>

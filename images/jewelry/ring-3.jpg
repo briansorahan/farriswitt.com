@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f9f6f0"/>
+  <defs>
+    <linearGradient id="platinum" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d0d0d0"/>
+      <stop offset="50%" style="stop-color:#f8f8f8"/>
+      <stop offset="100%" style="stop-color:#d0d0d0"/>
+    </linearGradient>
+    <radialGradient id="diamond2" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#fff"/>
+      <stop offset="100%" style="stop-color:#e8e8e8"/>
+    </radialGradient>
+  </defs>
+  <!-- Ring band -->
+  <ellipse cx="200" cy="230" rx="60" ry="30" fill="none" stroke="url(#platinum)" stroke-width="10"/>
+  <!-- Prong setting -->
+  <line x1="180" y1="200" x2="175" y2="170" stroke="url(#platinum)" stroke-width="3"/>
+  <line x1="220" y1="200" x2="225" y2="170" stroke="url(#platinum)" stroke-width="3"/>
+  <line x1="195" y1="200" x2="190" y2="165" stroke="url(#platinum)" stroke-width="3"/>
+  <line x1="205" y1="200" x2="210" y2="165" stroke="url(#platinum)" stroke-width="3"/>
+  <!-- Diamond -->
+  <polygon points="200,120 170,170 200,200 230,170" fill="url(#diamond2)" stroke="url(#platinum)" stroke-width="2"/>
+  <!-- Facets -->
+  <line x1="200" y1="120" x2="200" y2="200" stroke="#fff" stroke-width="1" opacity="0.5"/>
+  <line x1="170" y1="170" x2="230" y2="170" stroke="#fff" stroke-width="1" opacity="0.5"/>
+</svg>

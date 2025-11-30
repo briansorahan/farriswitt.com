@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f9f6f0"/>
+  <defs>
+    <linearGradient id="silver3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a8a8a8"/>
+      <stop offset="50%" style="stop-color:#e8e8e8"/>
+      <stop offset="100%" style="stop-color:#a8a8a8"/>
+    </linearGradient>
+    <radialGradient id="moonstone" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#fff"/>
+      <stop offset="50%" style="stop-color:#e6e6fa"/>
+      <stop offset="100%" style="stop-color:#b0c4de"/>
+    </radialGradient>
+  </defs>
+  <!-- Chain -->
+  <path d="M120 60 Q200 40 280 60" fill="none" stroke="url(#silver3)" stroke-width="2"/>
+  <!-- Pendant setting -->
+  <ellipse cx="200" cy="180" rx="45" ry="55" fill="none" stroke="url(#silver3)" stroke-width="4"/>
+  <!-- Moonstone -->
+  <ellipse cx="200" cy="180" rx="35" ry="45" fill="url(#moonstone)"/>
+  <!-- Light reflection -->
+  <ellipse cx="185" cy="165" rx="10" ry="15" fill="#fff" opacity="0.6"/>
+</svg>

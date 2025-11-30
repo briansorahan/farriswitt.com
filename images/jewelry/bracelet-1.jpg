@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f9f6f0"/>
+  <defs>
+    <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a8a8a8"/>
+      <stop offset="50%" style="stop-color:#e8e8e8"/>
+      <stop offset="100%" style="stop-color:#a8a8a8"/>
+    </linearGradient>
+  </defs>
+  <!-- Twisted bracelet -->
+  <ellipse cx="200" cy="200" rx="100" ry="60" fill="none" stroke="url(#silver)" stroke-width="8"/>
+  <ellipse cx="200" cy="200" rx="85" ry="45" fill="none" stroke="url(#silver)" stroke-width="4" stroke-dasharray="10,5"/>
+</svg>

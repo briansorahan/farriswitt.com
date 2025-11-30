@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f9f6f0"/>
+  <defs>
+    <linearGradient id="gold3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4af37"/>
+      <stop offset="50%" style="stop-color:#f5d769"/>
+      <stop offset="100%" style="stop-color:#d4af37"/>
+    </linearGradient>
+  </defs>
+  <!-- Leather band -->
+  <rect x="100" y="185" width="200" height="30" rx="5" fill="#8b4513"/>
+  <!-- Gold accents -->
+  <rect x="130" y="180" width="15" height="40" rx="3" fill="url(#gold3)"/>
+  <rect x="190" y="180" width="20" height="40" rx="3" fill="url(#gold3)"/>
+  <rect x="255" y="180" width="15" height="40" rx="3" fill="url(#gold3)"/>
+</svg>
