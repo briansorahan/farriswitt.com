@@ -2,10 +2,10 @@
 const jewelryData = [
     {
         id: 1,
-        name: "Golden Sunrise Necklace",
+        name: "Skeleton Pin",
         category: "necklaces",
-        price: 245.00,
-        image: "images/jewelry/necklace-1.jpg",
+        price: "NFS",
+        image: "images/jewelry/farris_witt_skeleton.PNG",
         description: "A stunning handcrafted gold-plated necklace featuring a delicate sunrise pendant. Perfect for adding elegance to any outfit."
     },
     {
