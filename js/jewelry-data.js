@@ -3,10 +3,10 @@ const jewelryData = [
     {
         id: 1,
         name: "Skeleton Pin",
-        category: "necklaces",
-        price: "NFS",
-        image: "images/jewelry/farris_witt_skeleton.PNG",
-        description: "A stunning handcrafted gold-plated necklace featuring a delicate sunrise pendant. Perfect for adding elegance to any outfit."
+        category: "Broches",
+        price: 0,
+        image: "images/jewelry/skeleton square.jpeg",
+        description: "I create custom Jewlery based off your or your loved ones tatoo's. This custom made skeleton pin with intricate detailing was moddled off a father's and daughters matching tatoo's for their wife/ mother."
     },
     {
         id: 2,
